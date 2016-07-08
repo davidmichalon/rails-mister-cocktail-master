@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= render 'cocktails/cocktail', cocktail_var: @cocktail %>
+      <%= link_to 'Back', cocktails_path %>
+      <h2>Voici les doses</h2>
+      <% @cocktail.doses.each do |dose|%>
+        <p><em><%= dose.description %> - <%= dose.ingredient.name %> - <%= link_to "Delete", cocktail_dose_path(@cocktail, dose), method: :delete %></em></p>
+      <% end %>
+      <h2>Ajouter unde dose !</h2>
+      <%= simple_form_for([@cocktail, @dose]) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :description, label: false, placeholder: "1 zeste de citron" %>
+        <%= f.input :ingredient_id, collection: Ingredient.all, prompt: "Choisis !" %>
+        <%= f.button :submit, "Ajouter !" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

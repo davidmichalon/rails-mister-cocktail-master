@@ -1,0 +1,7 @@
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cocktail_var.picture.nil? ? 'http://www.seriouseats.com/images/2014/11/20141104-cocktail-party-old-fashioneds-holiday-vicky-wasik-3.jpg' : cocktail_var.picture %>');">
+  <div class="card-category">Cocktail</div>
+  <div class="card-description">
+    <h2><%= cocktail_var.name %></h2>
+  </div>
+  <%= link_to "", cocktail_path(cocktail_var), class:"card-link" %>
+</div>

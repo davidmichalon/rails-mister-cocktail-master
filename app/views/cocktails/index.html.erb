@@ -1,0 +1,15 @@
+<h1 class="text-center">Your cocktail list</h1>
+
+<div class="text-center padded">
+  <%= link_to "Create a cocktail", new_cocktail_path, class: "btn btn-primary" %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |c| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= render 'cocktail', cocktail_var: c %>
+      </div>
+    <% end %>
+  </div>
+</div>
